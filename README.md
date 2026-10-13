@@ -26,3 +26,12 @@ docker run --rm debinata debinet-tools
 - `motd.sh` — login banner, installed as `/etc/profile.d/motd.sh`
 - `debinet-tools.sh` — lists installed networking tools, installed as `/usr/local/bin/debinet-tools`
 - `debinet-init.sh` — PID 1 entrypoint (`/etc/debinet-init.sh`); runs `/root/init.sh` if present, then execs the given command or an interactive shell via `dumb-init`
+
+## CI/CD
+
+`.github/workflows/docker-publish.yml` builds the image and pushes `manoedinata/debinata:latest` to Docker Hub on every push to `main`.
+
+It requires two repository secrets (Settings → Secrets and variables → Actions):
+
+- `DOCKERHUB_USERNAME` — your Docker Hub username
+- `DOCKERHUB_TOKEN` — a Docker Hub [access token](https://hub.docker.com/settings/security) (not your password)
