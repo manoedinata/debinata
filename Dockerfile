@@ -57,7 +57,8 @@ RUN apt-get update && \
     file \
     tar \
     gzip \
-    dumb-init && \
+    dumb-init \
+    python3 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
